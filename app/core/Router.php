@@ -19,7 +19,7 @@ class Router{
         $this->routes[$route] = $param;
     }
 
-    public function match(){
+    public function find(){
         $url = trim($_SERVER['REQUEST_URI'], '/');
         foreach($this->routes as $route => $param){
             if (preg_match($route, $url, $matches)){
@@ -31,10 +31,16 @@ class Router{
     }
 
     public function run(){
-        if($this->match()){
-            $controller = 'app\controllers\\'. ucfirst($this->params['controller']).'Controller.php';
-            if (class_exists($controller)){
-                
+        if($this->find()){
+            $path = 'app\controllers\\'. ucfirst($this->params['controller']).'Controller';
+            if (class_exists($path)){
+                $action = $this->params['action'] . 'Action';
+                if (method_exists($path, $action)){
+                    $controller = new $path($this->params);
+                    $controller->$action();
+                }else{
+                    // Method not found
+                }
             }else{
                 // Class not found
             }
