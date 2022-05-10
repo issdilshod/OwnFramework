@@ -1,7 +1,7 @@
 <?php
 namespace app\lib;
 
-class Db{
+class DbMysqli{
 
     protected $connection;
 

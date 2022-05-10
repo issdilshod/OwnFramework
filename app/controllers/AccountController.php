@@ -2,12 +2,12 @@
 namespace app\controllers;
 
 use app\core\Controller;
-use app\lib\Db;
+use app\lib\DbMysqli;
 
 class AccountController extends Controller{
 
     public function loginAction(){
-        // $db = new Db();
+        // $db = new DbMysqli();
         // $vars = $db->query("SELECT * FROM users")->rows;
 
         // Another path to layout
