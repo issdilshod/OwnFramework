@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use app\core\View;
+
 class Router{
 
     protected $routes = [];
@@ -40,12 +42,15 @@ class Router{
                     $controller->$action();
                 }else{
                     // Method not found
+                    View::error(404);
                 }
             }else{
                 // Class not found
+                View::error(404);
             }
         }else{
             // Route not found
+            View::error(404);
         }
     }
 
