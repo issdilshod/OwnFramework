@@ -2,19 +2,22 @@
 namespace app\controllers;
 
 use app\core\Controller;
-use app\lib\DbMysqli;
+use app\models\Account;
 
 class AccountController extends Controller{
 
-    public function loginAction(){
-        // $db = new DbMysqli();
-        // $vars = $db->query("SELECT * FROM users")->rows;
+    private $modelAccount;
 
+    private function setModels(){
+        $this->modelAccount = new Account();
+    }
+
+    public function loginAction(){
+        $this->setModels();
+        $vars = $this->modelAccount->getUsers();
         // Another path to layout
         // $this->view->layout = 'custom';
-
-        $this->view->render('Login');
-
+        $this->view->render('Login', $vars);
         // Redirect to another link
         // $this->view->redirect($url);
     }
