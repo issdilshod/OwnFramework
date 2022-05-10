@@ -6,6 +6,8 @@ use app\core\Controller;
 class DashboardController extends Controller{
 
     public function indexAction(){
-        debug($this->route);
+        // Another path to view
+        //$this->view->path = 'path';
+        $this->view->render('Dashboard');
     }
 }
