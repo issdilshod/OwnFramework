@@ -14,10 +14,10 @@ class AccountController extends Controller{
 
     public function loginAction(){
         $this->setModels();
-        $vars = $this->modelAccount->getUsers();
+        //$vars = $this->modelAccount->getUsers();
         // Another path to layout
         // $this->view->layout = 'custom';
-        $this->view->render('Login', $vars);
+        $this->view->render('Login');
         // Redirect to another link
         // $this->view->redirect($url);
     }

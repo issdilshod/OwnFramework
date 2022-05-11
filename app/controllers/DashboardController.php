@@ -14,9 +14,9 @@ class DashboardController extends Controller{
 
     public function indexAction(){
         $this->setModels();
-        $vars = $this->modelDashboard->getUsers();
+        //$vars = $this->modelDashboard->getUsers();
         // Another path to view
         //$this->view->path = 'path';
-        $this->view->render('Dashboard', $vars);
+        $this->view->render('Dashboard');
     }
 }
